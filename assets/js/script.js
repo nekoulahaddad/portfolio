@@ -87,3 +87,24 @@ $(function() {
     });
     
 });
+
+var i = 0;
+var txts = ['I am Full Stack Developer ','I am Data Scientist ','I am Biotech Engineer ']; /* The text */
+var speed = 200; /* The speed/duration of the effect in milliseconds */
+var j = 0;
+window.onload = function typeWriter() {
+var txt = txts[j]
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+  if (i == txt.length && j < txts.length){
+   i = 0;
+   j++;
+   document.getElementById("demo").innerHTML = "";
+  }
+  if (j == txts.length) {
+  j = 0;
+  }
+}
