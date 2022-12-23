@@ -24,7 +24,6 @@
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
-  speak: none;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
@@ -107,18 +106,6 @@ h4 {
     box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.15);
 }
 
-/* Input fields */
-.form-control {
-    padding-left: 10px;
-    border: 0;
-    border-bottom: 1px solid #212121;
-    border-radius: 0;
-    background-color: transparent; 
-    box-shadow: none;
-    outline: 0 none transparent;
-    -webkit-appearance:none;
- }
-
 textarea {
     margin-top: 40px;
     min-height: 200px;
@@ -145,6 +132,20 @@ html, body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #212121;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+background-color: #e4e4e4;
+border-radius: 100px;
+}
+
+html::-webkit-scrollbar-thumb {
+background-color: #212121;
+border-radius: 100px;
 }
 
 .img-res {
@@ -512,9 +513,7 @@ video {
   transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
   border-radius: 1% 1% 2% 4%/3% 9% 7% 6%;
 }  
-.machine_desc_container{
-    /*margin-top: auto;*/
-}
+
 .machine_desc{
     text-align: center;
 }
@@ -624,29 +623,38 @@ margin-top: 5px !important;
 ================================================== */
 .site-footer {
     bottom: 0;
-    padding: 30px 0;*/
+    padding: 30px 0;
     width: 100%;
     background-color: #212121;
 }
 
 .icon {
+    position: relative;
     line-height: 40px;
-    padding: 9px 13px;
+    padding: 10px 19.5px;
     color: #fff;
     border: 1px solid #fff;
     border-radius: 50%;
+}
+.icon i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .icon + .icon {
     margin-left: 5px;
 }
 
-.icon i:before {
-    margin:0;
-}
-
 .icon:hover {
     background-color: #fff;
+}
+.icon-up{
+    color: #fff;
+}
+.icon-up:hover{
+    color: #212121;
 }
 
 .site-footer a {
