@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nekoula Blog | IT, AI, Agents, OpenClaw</title>
+  <meta name="description" content="Blog by Nekoula Haddad about modern IT engineering, AI systems, software agents, and OpenClaw implementation patterns.">
+  <meta name="keywords" content="Nekoula blog, IT blog, AI blog, agent systems, OpenClaw, software architecture">
+  <meta name="author" content="Nekoula Haddad">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#090B11">
+  <link rel="canonical" href="https://nekoula.ru/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nekoula Blog">
+  <meta property="og:title" content="Nekoula Blog | IT, AI, Agents, OpenClaw">
+  <meta property="og:description" content="Practical articles on architecture, delivery systems, AI agents, and OpenClaw workflows.">
+  <meta property="og:url" content="https://nekoula.ru/blog.html">
+  <meta property="og:image" content="https://nekoula.ru/assets/img/logo-modern.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nekoula Blog | IT, AI, Agents, OpenClaw">
+  <meta name="twitter:description" content="Technical and product delivery articles from Nekoula Haddad.">
+  <meta name="twitter:image" content="https://nekoula.ru/assets/img/logo-modern.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo-modern.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/blog-modern.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html#home">
+      <img src="assets/img/logo-modern.svg" alt="Nekoula logo">
+      <span>Nekoula Blog</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="blog-hero reveal">
+      <p class="hero-kicker">Knowledge Hub</p>
+      <h1>Insights on IT engineering, AI systems and Agents.</h1>
+      <p class="hero-lead">This page includes 20 practical articles focused on architecture decisions, delivery operations, and production-grade implementation patterns.</p>
+    </section>
+
+    <section class="blog-wrap reveal">
+      <div id="blog-list" class="blog-grid"></div>
+
+      <div class="pagination-wrap">
+        <button id="prev-page" class="pager" type="button">Previous</button>
+        <div id="pagination" class="pagination"></div>
+        <button id="next-page" class="pager" type="button">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="post-modal" class="post-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Blog article">
+      <button id="close-modal" class="close-modal" type="button" aria-label="Close article">Close</button>
+      <p id="modal-meta" class="modal-meta"></p>
+      <h2 id="modal-title"></h2>
+      <div id="modal-content" class="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Nekoula Haddad. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/blog-modern.js"></script>
+</body>
+</html>
