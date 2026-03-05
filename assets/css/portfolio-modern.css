@@ -286,6 +286,7 @@ h2 {
 }
 
 .about,
+.stack-game,
 .projects,
 .approach,
 .contact {
@@ -344,6 +345,156 @@ h2 {
 
 .about-grid a:hover,
 .contact-grid a:hover { border-bottom-color: #e9f6ff; }
+
+.stack-game-head {
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.stack-arena {
+  position: relative;
+  min-height: 540px;
+  border: 1px solid #304766;
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 56%, rgba(0, 224, 184, 0.2), rgba(0, 224, 184, 0) 44%),
+    radial-gradient(circle at 22% 18%, rgba(122, 215, 255, 0.18), rgba(122, 215, 255, 0) 36%),
+    radial-gradient(circle at 82% 22%, rgba(255, 184, 100, 0.12), rgba(255, 184, 100, 0) 36%),
+    linear-gradient(180deg, rgba(18, 30, 45, 0.95) 0%, rgba(13, 23, 35, 0.97) 55%, rgba(10, 17, 27, 0.99) 100%);
+}
+
+.stack-arena::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22%;
+  width: min(66vw, 680px);
+  height: min(66vw, 680px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 215, 255, 0.35), rgba(122, 215, 255, 0));
+  pointer-events: none;
+}
+
+.stack-bubble {
+  --bubble-accent: rgba(122, 215, 255, 0.5);
+  position: absolute;
+  width: clamp(88px, 8.8vw, 118px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(122, 215, 255, 0.28);
+  background:
+    linear-gradient(150deg, rgba(36, 58, 82, 0.62), rgba(15, 27, 41, 0.78));
+  backdrop-filter: blur(8px);
+  color: #f6f8ff;
+  font-size: clamp(0.86rem, 1.2vw, 1.04rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  transform-origin: center;
+  box-shadow:
+    0 10px 18px rgba(3, 12, 22, 0.28),
+    inset 0 1px 0 rgba(227, 245, 255, 0.2);
+  transition: box-shadow .2s ease, border-color .2s ease, filter .2s ease, transform .2s ease, background .2s ease;
+  contain: layout paint;
+  will-change: left, top, transform;
+  overflow: hidden;
+}
+
+.stack-bubble:nth-child(3n+1) { --bubble-accent: rgba(0, 224, 184, 0.55); }
+.stack-bubble:nth-child(3n+2) { --bubble-accent: rgba(122, 215, 255, 0.55); }
+.stack-bubble:nth-child(3n) { --bubble-accent: rgba(255, 184, 100, 0.5); }
+
+.stack-bubble::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(235, 249, 255, 0.18), rgba(235, 249, 255, 0) 34%),
+    radial-gradient(circle at 85% 18%, color-mix(in srgb, var(--bubble-accent) 62%, transparent), transparent 42%);
+  pointer-events: none;
+}
+
+.stack-bubble::after {
+  content: "";
+  position: absolute;
+  inset: auto 16% 10% 16%;
+  height: 24%;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--bubble-accent) 52%, transparent), transparent 70%);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity .2s ease;
+}
+
+.stack-bubble:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--bubble-accent) 78%, #d9f1ff 22%);
+  background: linear-gradient(150deg, rgba(43, 68, 94, 0.72), rgba(17, 31, 47, 0.85));
+  box-shadow:
+    0 14px 24px rgba(4, 11, 20, 0.34),
+    inset 0 1px 0 rgba(233, 246, 255, 0.24);
+}
+
+.stack-bubble.is-dragging {
+  cursor: grabbing;
+  transform: scale(1.04);
+  box-shadow:
+    0 20px 34px rgba(3, 10, 18, 0.44),
+    0 0 0 2px color-mix(in srgb, var(--bubble-accent) 36%, transparent);
+  border-color: color-mix(in srgb, var(--bubble-accent) 86%, #e9f7ff 14%);
+  z-index: 10;
+}
+
+.stack-bubble.is-colliding {
+  animation: bubblePulse .26s cubic-bezier(.22, 1.2, .35, 1);
+}
+
+.stack-icon {
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+.stack-icon:not(.colored) {
+  color: #f2f6ff;
+}
+
+.stack-icon-img {
+  width: clamp(21px, 3vw, 30px);
+  height: clamp(21px, 3vw, 30px);
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(3, 8, 18, 0.28));
+}
+
+.stack-text-icon {
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  font-size: clamp(0.92rem, 1.25vw, 1.06rem);
+  letter-spacing: 0.05em;
+}
+
+.stack-label {
+  font-size: clamp(0.54rem, 0.78vw, 0.7rem);
+  color: #d8ebff;
+  opacity: 0.92;
+  letter-spacing: 0.025em;
+}
+
+@keyframes bubblePulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.09); }
+  100% { transform: scale(1); }
+}
 
 .project-list {
   display: grid;
@@ -485,6 +636,10 @@ h2 {
   }
 
   .hero::before { display: none; }
+
+  .stack-arena {
+    min-height: 500px;
+  }
 }
 
 @media (max-width: 860px) {
