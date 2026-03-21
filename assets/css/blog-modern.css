@@ -25,6 +25,16 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
 .site-header {
   position: sticky;
   top: 0;
